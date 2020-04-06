@@ -1,4 +1,5 @@
-# Lorem Ipsum PRESENTA plugin
+# Lorem Ipsum generator
+## PRESENTA plugin
 
 This is a kind of joke, a Lorem Ipsum slide generator.
 It's a joke because PRESENTA is all about fostering real content first!
