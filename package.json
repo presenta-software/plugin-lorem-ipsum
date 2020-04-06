@@ -1,9 +1,10 @@
 {
   "name": "plugin-lorem-ipsum",
   "version": "1.0.0",
-  "description": "A Lorem Ipsum slide generator just for fun.",
+  "description": "A Lorem Ipsum slide generator for fun and for profit.",
   "keywords": ["lorem", "ipsum", "generator", "text"],
   "author": "PRESENTA",
+  "author_url": "https://www.presenta.cc/",
   "license": "ISC",
   "presenta":{
     "title": "Lorem Ipsum Generator",
