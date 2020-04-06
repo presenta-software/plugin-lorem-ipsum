@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="https://unpkg.com/presenta-sdk"></script>
+  <script src="https://unpkg.com/getlorem@1.0.1/lib/getlorem.js"></script>
+
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+    body{
+      font-family: sans-serif;
+      font-size: 0.8rem;
+    }
+
+    input{
+      padding:.5rem;
+      width: 100%;
+      border:none;
+      border:1px solid #ddd;
+      width: 40px;
+      text-align: center;
+    }
+    button{
+      flex:1;
+      border:none;
+      background-color: black;
+      color:white;
+      padding: .75rem;
+    }
+  
+    .row{
+        padding-top:0.5rem;
+        display: flex;
+    }
+    
+  </style>
+</head>
+<body>
+
+
+    <p>This is more a joke than a real plugin since <b>PRESENTA fosters the content-first</b> principle, thus, lorem-ipsum is not content by definition.</p>
+    <p>Nevertheless, it's a good example on the potential of a <b>PRESENTA</b> plugin, though.</p>
+        
+    <div class="row">
+      <button>Generate</button>
+    </div>
+    
+
+    <script type="text/javascript">
+
+      function createHeadingSlide(text){
+        return {
+          text: `<h1>${text}</h1>`, 
+          textVariant: 'laya',
+          colorVariant: 'varb'
+        }
+      }
+
+      function createSectionSlide(){
+        return {
+          text: `<h1>${getlorem.words(4)}</h1>
+          <h2>${getlorem.words(7)}</h2>`,
+          textVariant: 'layb',
+          colorVariant: 'varc'
+        }
+      }
+
+      function createTextSlide(){
+        return {
+          text: `<h1>${getlorem.words(4)}</h1>
+          <p>${getlorem.sentences(2)}</p>
+          <ul>
+            <li>${getlorem.words(5)}</li>
+            <li>${getlorem.words(6)}</li>
+            <li>${getlorem.words(5)}</li>
+          </ul>`,
+          textVariant: 'layc',
+          colorVariant: 'vara'
+        }
+      }
+
+      document.querySelector('button').addEventListener('click', () => {
+
+        let arr = []
+
+        arr.push( createHeadingSlide('Welcome to my Content. <br />I wrote every single char 😎.') )
+
+        for(var i=0; i < 3; ++i){
+          arr.push( createSectionSlide() )
+
+          for(var j=0; j < parseInt(Math.random()*4 + 2); ++j){
+            arr.push( createTextSlide() )
+          }
+
+        }
+
+        arr.push( createHeadingSlide('Thanks for reading!') )
+
+        // send to PRESENTA
+        presenta.createSlides(arr)
+      })
+
+    </script>
+    
+</body>
+</html>
