@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Lorem Ipsum PRESENTA Plugin</title>
   <script src="https://unpkg.com/presenta-sdk"></script>
   <script src="https://unpkg.com/getlorem@1.0.1/lib/getlorem.js"></script>
   <link rel="stylesheet" href="https://use.typekit.net/vvg5tnq.css">
@@ -106,8 +106,9 @@
         arr.push( createHeadingSlide('Thanks for reading!') )
 
         // send to PRESENTA
-        console.log(arr)
-        presenta.createSlides(arr)
+        presenta.createSlides({
+          slides: arr
+        })
       })
 
     </script>
