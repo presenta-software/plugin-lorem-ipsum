@@ -20,8 +20,7 @@
       width: 100%;
       border:none;
       border:1px solid #ddd;
-      width: 40px;
-      text-align: center;
+      margin-bottom: 5px;
     }
     button{
       flex:1;
@@ -34,6 +33,7 @@
     .row{
         padding-top:0.5rem;
         display: flex;
+        flex-direction: column;
     }
     
   </style>
@@ -47,6 +47,7 @@
     <p>So, what are you waiting for?</p>
         
     <div class="row">
+      <input type="text" placeholder="write a name" />
       <button>Generate Slides</button>
     </div>
 
@@ -89,8 +90,9 @@
       document.querySelector('button').addEventListener('click', () => {
 
         let arr = []
-
-        arr.push( createHeadingSlide('Welcome to my Content. <br />I wrote every single char 😎.') )
+        
+        let name = document.querySelector('input').value || 'anonymous'
+        arr.push( createHeadingSlide(`Welcome <mark>${name}</mark>. <br />I wrote every single char 😎.`) )
 
         for(var i=0; i < 3; ++i){
           arr.push( createSectionSlide() )
@@ -104,6 +106,7 @@
         arr.push( createHeadingSlide('Thanks for reading!') )
 
         // send to PRESENTA
+        console.log(arr)
         presenta.createSlides(arr)
       })
 
