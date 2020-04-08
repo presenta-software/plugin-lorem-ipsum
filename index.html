@@ -45,13 +45,16 @@
       We all agree that lorem-ipsum is NOT content by definition.</p>
     <p>Nevertheless, it's a good example to show the potential of a <b>PRESENTA</b> plugin.</p>
     <p>So, what are you waiting for?</p>
-        
+    
+    
     <div class="row">
-      <input type="text" placeholder="write a name" />
-      <button>Generate Slides</button>
+      <span>How many slides (10-50)?</span>
+      <input id="num" min="10" max="50" value="30" type="range" />
+      <input id="name" type="text" placeholder="sign with your name!" />
+      <button>Generate!</button>
     </div>
 
-    <p>If you want to dig a bit, <a href="https://github.com/presenta-software/plugin-lorem-ipsum" target="_blank">here the source code</a>.</p>
+    <p>Want to make a plugin? <a href="https://github.com/presenta-software/plugin-lorem-ipsum" target="_blank">Start from its source code</a>.</p>
     
 
     <script type="text/javascript">
@@ -89,21 +92,34 @@
 
       document.querySelector('button').addEventListener('click', () => {
 
+        presenta.deleteSlides({all:true})
+
         let arr = []
         
-        let name = document.querySelector('input').value || 'anonymous'
-        arr.push( createHeadingSlide(`Welcome <mark>${name}</mark>. <br />I wrote every single char 😎.`) )
+        let name = document.querySelector('#name').value || 'anonymous'
 
-        for(var i=0; i < 3; ++i){
+        arr.push( createHeadingSlide(`Welcome <mark>${name}</mark>. <br />I typed every single char 😎.`) )
+
+        let num = document.querySelector('#num').value || 30
+
+
+        let count = 3
+        for(var i=0; i < 15; ++i){
           arr.push( createSectionSlide() )
-
-          for(var j=0; j < parseInt(Math.random()*4 + 2); ++j){
+          count++
+          if(count > num) break
+          
+          for(var j=0; j < parseInt(Math.random()*5 + 2); ++j){
             arr.push( createTextSlide() )
+            count++
+            if(count > num) break
           }
-
+          
         }
 
         arr.push( createHeadingSlide('Thanks for reading!') )
+
+        console.log(arr.length)
 
         // send to PRESENTA
         presenta.createSlides({
