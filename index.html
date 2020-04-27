@@ -61,7 +61,7 @@
 
       function createHeadingSlide(text){
         return {
-          text: `<h1>${text}</h1>`, 
+          setText: `<h1>${text}</h1>`, 
           textVariant: 'laya',
           colorVariant: 'varb'
         }
@@ -69,7 +69,7 @@
 
       function createSectionSlide(){
         return {
-          text: `<h1>${getlorem.words(4)}</h1>
+          setText: `<h1>${getlorem.words(4)}</h1>
           <h2>${getlorem.words(7)}</h2>`,
           textVariant: 'layb',
           colorVariant: 'varc'
@@ -78,7 +78,7 @@
 
       function createTextSlide(){
         return {
-          text: `<h1>${getlorem.words(4)}</h1>
+          setText: `<h1>${getlorem.words(4)}</h1>
           <p>${getlorem.sentences(2)}</p>
           <ul>
             <li>${getlorem.words(5)}</li>
@@ -118,8 +118,6 @@
         }
 
         arr.push( createHeadingSlide('Thanks for reading!') )
-
-        console.log(arr.length)
 
         // send to PRESENTA
         presenta.createSlides({
