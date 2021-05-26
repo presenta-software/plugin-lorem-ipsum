@@ -6,8 +6,7 @@
   "author": "PRESENTA",
   "author_url": "https://www.presenta.cc/",
   "license": "ISC",
-  "presenta":{
-    "title": "Lorem Ipsum Generator",
-    "type": "plugin"
+  "scripts": {
+    "dev": "http-server -p 8083 --cors"
   }
 }
